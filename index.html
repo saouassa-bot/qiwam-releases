@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تحميل تطبيق قِوام</title>
+<style>
+  body{margin:0;font-family:system-ui,"Segoe UI",Tahoma,sans-serif;background:#0b1b2b;color:#eef2f6;display:flex;justify-content:center}
+  main{max-width:460px;width:100%;padding:28px 20px 40px}
+  h1{font-size:26px;margin:8px 0 4px}
+  .sub{color:#9fb3c8;margin:0 0 22px;font-size:14px}
+  .btn{display:block;text-align:center;background:#c08a4a;color:#fff;text-decoration:none;font-weight:700;font-size:20px;padding:16px;border-radius:14px}
+  .meta{color:#9fb3c8;font-size:13px;text-align:center;margin:10px 0 26px}
+  .card{background:#13283d;border-radius:14px;padding:16px 18px;margin-bottom:14px}
+  .card h2{font-size:16px;margin:0 0 10px;color:#e0b070}
+  ol{margin:0;padding-inline-start:20px;line-height:1.9;font-size:15px}
+  .note{color:#9fb3c8;font-size:13px;line-height:1.7}
+  .notice{background:#10263a;border:1px solid #c08a4a;border-radius:14px;padding:16px 18px;margin-bottom:14px}
+  .notice h2{font-size:16px;margin:0 0 10px;color:#e0b070}
+  .notice p{margin:0 0 8px;line-height:1.9;font-size:15px}
+  .notice .thanks{margin:0;color:#e0b070;font-weight:700}
+</style>
+</head>
+<body>
+<main>
+  <h1>قِوام</h1>
+  <p class="sub">تطبيق إدارة المواظبة والانضباط — ثانوية دخيسي محمد، مغنية</p>
+  <a class="btn" href="https://github.com/saouassa-bot/qiwam-releases/releases/latest/download/qiwam-arm64.apk">تحميل التطبيق للأندرويد</a>
+  <div class="meta" style="margin-top:8px">هاتف قديم لا يقبل التثبيت؟ <a href="https://github.com/saouassa-bot/qiwam-releases/releases/latest/download/qiwam-arm.apk">النسخة الخاصة بالهواتف القديمة</a></div>
+  <div class="meta" id="ver">آخر إصدار</div>
+  <div class="notice">
+    <h2>إلى الأساتذة والأستاذات الأفاضل</h2>
+    <p>لتفعيل حسابكم في التطبيق والحصول على <b>اسم المستخدم وكلمة السر</b>، يُرجى التقرّب من <b>مكتب الاستشارة</b> في المؤسسة، حيث تُسلَّم بيانات الدخول لكل أستاذ وأستاذة شخصيًا.</p>
+    <p>ونرجو منكم المحافظة على سرية بيانات الدخول وعدم مشاركتها مع الغير.</p>
+    <p class="thanks">شكرًا لكم على تعاونكم الدائم.</p>
+  </div>
+  <div class="card">
+    <h2>طريقة التثبيت</h2>
+    <ol>
+      <li>اضغط زر التحميل أعلاه، وانتظر اكتمال التنزيل.</li>
+      <li>افتح الملف <b>qiwam.apk</b> من إشعار التنزيل أو من مجلد «التنزيلات».</li>
+      <li>إن ظهرت رسالة تمنع التثبيت، اضغط <b>«الإعدادات»</b> ثم فعّل <b>«السماح من هذا المصدر»</b>، وارجع واضغط <b>«تثبيت»</b>.</li>
+      <li>إن ظهر تنبيه من Google Play Protect، اختر <b>«التثبيت على أي حال»</b>.</li>
+    </ol>
+  </div>
+  <p class="note">التطبيق غير منشور في متجر Google Play، ولذلك يطلب الهاتف هذه الموافقة مرة واحدة. بعد التثبيت يُحدِّث التطبيق نفسه تلقائيًا عند صدور إصدار جديد. للأندرويد فقط؛ ولأجهزة آيفون استعملوا الرابط: qiwam-production.web.app</p>
+</main>
+<script>
+fetch('https://api.github.com/repos/saouassa-bot/qiwam-releases/releases/latest').then(r => r.json()).then(r => {
+  if (r && r.tag_name) document.getElementById('ver').textContent = 'الإصدار ' + r.tag_name.replace('build-', '') + ' — ' + (r.published_at || '').slice(0, 10);
+}).catch(() => {});
+</script>
+</body>
+</html>
